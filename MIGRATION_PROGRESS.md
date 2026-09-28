@@ -113,5 +113,5 @@ Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
 ## Ultimo aggiornamento
 
 - **Data:** 2026-09-28
-- **Commit di riferimento:** fondamenta build Java 17 (commit che introduce `PHASE0_FRAMEWORK_COMPAT.md`)
+- **Commit di riferimento:** `c0ca06e` (fondamenta build Java 17, introduce `PHASE0_FRAMEWORK_COMPAT.md`)
 - **Descrizione:** Fase 0 conclusa (verdetto GO condizionale, vedi `PHASE0_FRAMEWORK_COMPAT.md`); Fase 1 conclusa: `dev.aspectj:aspectj-maven-plugin` 1.14.1, AspectJ 1.9.24, `maven.compiler.release=17`, stack Spring 4.3.30 / Security 3.2.10 / Quartz 2.3.2; `mvn -Ptomcat -DskipTests clean install` → BUILD SUCCESS su OpenJDK 17.0.19.
