@@ -26,7 +26,7 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 | 1 | `mes-plugins/mes-plugins-orders` | 16 | TODO |
 | 2 | `mes-plugins/mes-plugins-basic` | 13 | TODO |
 | 3 | `mes-plugins/mes-plugins-material-requirements` | 5 | TODO |
-| 4 | `mes-plugins/mes-plugins-work-plans` | 7 | TODO |
+| 4 | `mes-plugins/mes-plugins-work-plans` | 7 | FATTO (test verdi) |
 | 5 | `mes-plugins/mes-plugins-technologies` | 13 | TODO |
 | 6 | `mes-plugins/mes-plugins-production-scheduling` | 1 | TODO |
 | 7 | `mes-plugins/mes-plugins-stoppage` | 0 | TODO |
@@ -49,36 +49,36 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 | 24 | `mes-plugins/mes-plugins-line-changeover-norms` | 5 | TODO |
 | 25 | `mes-plugins/mes-plugins-line-changeover-norms-for-orders` | 6 | TODO |
 | 26 | `mes-plugins/mes-plugins-states` | 13 | TODO |
-| 27 | `mes-plugins/mes-plugins-wage-groups` | 3 | TODO |
+| 27 | `mes-plugins/mes-plugins-wage-groups` | 3 | FATTO (test verdi) |
 | 28 | `mes-plugins/mes-plugins-assignment-to-shift` | 6 | TODO |
 | 29 | `mes-plugins/mes-plugins-cost-norms-for-operation-in-order` | 0 | TODO |
 | 30 | `mes-plugins/mes-plugins-avg-labor-cost-calc-for-order` | 1 | TODO |
 | 31 | `mes-plugins/mes-plugins-product-catalog-numbers` | 2 | TODO |
-| 32 | `mes-plugins/mes-plugins-tech-subcontracting` | 5 | TODO |
-| 33 | `mes-plugins/mes-plugins-tech-subcontr-for-oper-tasks` | 0 | TODO |
+| 32 | `mes-plugins/mes-plugins-tech-subcontracting` | 5 | FATTO (test verdi) |
+| 33 | `mes-plugins/mes-plugins-tech-subcontr-for-oper-tasks` | 0 | FATTO (test verdi) |
 | 34 | `mes-plugins/mes-plugins-deliveries` | 16 | TODO |
-| 35 | `mes-plugins/mes-plugins-tech-subcontr-for-deliveries` | 8 | TODO |
+| 35 | `mes-plugins/mes-plugins-tech-subcontr-for-deliveries` | 8 | FATTO (test verdi) |
 | 36 | `mes-plugins/mes-plugins-column-extension` | 1 | TODO |
 | 37 | `mes-plugins/mes-plugins-deliveries-to-material-flow` | 0 | TODO |
-| 38 | `mes-plugins/mes-plugins-tech-subcontr-for-production-counting` | 0 | TODO |
+| 38 | `mes-plugins/mes-plugins-tech-subcontr-for-production-counting` | 0 | FATTO (test verdi) |
 | 39 | `mes-plugins/mes-plugins-cat-numbers-in-deliveries` | 7 | TODO |
-| 40 | `mes-plugins/mes-plugins-master-orders` | 3 | TODO |
-| 41 | `mes-plugins/mes-plugins-cmms-machine-parts` | 0 | TODO |
+| 40 | `mes-plugins/mes-plugins-master-orders` | 3 | FATTO (test verdi) |
+| 41 | `mes-plugins/mes-plugins-cmms-machine-parts` | 0 | FATTO (test verdi) |
 | 42 | `mes-plugins/mes-plugins-warehouse-minimal-state` | 0 | TODO |
-| 43 | `mes-plugins/mes-plugins-advanced-genealogy` | 9 | TODO |
+| 43 | `mes-plugins/mes-plugins-advanced-genealogy` | 9 | FATTO (test verdi) |
 | 44 | `mes-plugins/mes-plugins-supply-negotiations` | 10 | TODO |
 | 45 | `mes-plugins/mes-plugins-cat-numbers-in-negot` | 5 | TODO |
 | 46 | `mes-plugins/mes-plugins-product-flow-thru-division` | 0 | TODO |
 | 47 | `mes-plugins/mes-plugins-material-requirement-coverage-for-order` | 0 | TODO |
-| 48 | `mes-plugins/mes-plugins-tech-subcontr-for-negot` | 8 | TODO |
-| 49 | `mes-plugins/mes-plugins-tech-subcontr-for-order-supplies` | 4 | TODO |
+| 48 | `mes-plugins/mes-plugins-tech-subcontr-for-negot` | 8 | FATTO (test verdi) |
+| 49 | `mes-plugins/mes-plugins-tech-subcontr-for-order-supplies` | 4 | FATTO (test verdi) |
 | 50 | `mes-plugins/mes-plugins-order-supplies` | 5 | TODO |
 | 51 | `mes-plugins/mes-plugins-orders-for-subproducts-generation` | 0 | TODO |
 | 52 | `mes-plugins/mes-plugins-time-gaps-preview` | 3 | TODO |
 | 53 | `mes-plugins/mes-plugins-technologies-generator` | 5 | TODO |
-| 54 | `mes-plugins/mes-plugins-email-notifications` | 0 | TODO |
+| 54 | `mes-plugins/mes-plugins-email-notifications` | 0 | FATTO (test verdi) |
 | 55 | `mes-plugins/mes-plugins-deliveries-min-state` | 0 | TODO |
-| 56 | `mes-application` | 0 | TODO |
+| 56 | `mes-application` | 0 | FATTO (test verdi) |
 
 **Riepilogo Fase 2:** FATTO 0 / 56 — IN CORSO 0 — TODO 56 → completamento Fase 2 = **0.00%**
 

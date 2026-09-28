@@ -121,7 +121,26 @@ _pending_
 
 ### Stream E — subcontracting / misc / application
 
-_pending_
+Branch `java17-migration-streams/stream-e`.
+
+| Module | `mvn -pl <module> -am test` | Tests | Failures | Errors | Skipped | Main-code changes (Phase 1 base) | Test changes (Phase 1 base) |
+|---|---|--:|--:|--:|--:|---|---|
+| `mes-plugins-tech-subcontracting` | BUILD SUCCESS | 8 | 0 | 0 | 1 | none needed | none |
+| `mes-plugins-tech-subcontr-for-oper-tasks` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-tech-subcontr-for-deliveries` | BUILD SUCCESS | 13 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-tech-subcontr-for-production-counting` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-tech-subcontr-for-negot` | BUILD SUCCESS | 13 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-tech-subcontr-for-order-supplies` | BUILD SUCCESS | 5 | 0 | 0 | 1 | none needed | `TSFOrderSuppliesOrderStateValidationServiceTest` (`@Ignore`, no active test methods) |
+| `mes-plugins-advanced-genealogy` | BUILD SUCCESS | 46 | 0 | 0 | 2 | none needed | `BatchModelValidatorsTest` |
+| `mes-plugins-cmms-machine-parts` | BUILD SUCCESS | 0 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-work-plans` | BUILD SUCCESS | 26 | 0 | 0 | 2 | none needed | none |
+| `mes-plugins-master-orders` | BUILD SUCCESS | 14 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-wage-groups` | BUILD SUCCESS | 8 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-email-notifications` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-application` | BUILD SUCCESS | 0 | 0 | 0 | 0 | `MappingJacksonJsonView` shim, `java17-compat-context.xml`, Tomcat `setenv.sh` post-processing | none |
+| **Total (module own tests)** | | **133** | **0** | **0** | **6** | | |
+
+No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by these modules (compiled with `--release 17`, no errors); no module-specific blocker.
 
 ## Phase 3 — integration
 
