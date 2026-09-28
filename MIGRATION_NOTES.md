@@ -105,7 +105,24 @@ Every module was verified with `mvn -pl <module> -am test` on JDK 17 in its stre
 
 ### Stream A — core / base
 
-_pending_
+Branch `java17-migration-streams/stream-a`.
+
+| Module | `mvn -pl <module> -am test` | Tests | Failures | Errors | Skipped | Main-code changes (Phase 1 base) | Test changes (Phase 1 base) |
+|---|---|--:|--:|--:|--:|---|---|
+| `mes-plugins-basic` | BUILD SUCCESS | 33 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml`; `TriggersFactoryBean` → `org.quartz.CronTrigger` | `UnitConversionItemValidatorsBTest` |
+| `mes-plugins-states` | BUILD SUCCESS | 70 | 0 | 0 | 0 | none needed | `StateChangeViewClientValidationUtilTest` |
+| `mes-plugins-column-extension` | BUILD SUCCESS | 4 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-basic-production-counting` | BUILD SUCCESS | 1 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-production-counting` | BUILD SUCCESS | 18 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-production-lines` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-stoppage` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-deviation-causes-reporting` | BUILD SUCCESS | 11 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-assignment-to-shift` | BUILD SUCCESS | 24 | 0 | 0 | 0 | none needed | `AssignmentToShiftHooksTest`, `AssignmentToShiftReportHooksTest` |
+| `mes-plugins-line-changeover-norms` | BUILD SUCCESS | 14 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-line-changeover-norms-for-orders` | BUILD SUCCESS | 46 | 0 | 0 | 1 | none needed | none |
+| **Total (module own tests)** | | **221** | **0** | **0** | **1** | | |
+
+No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by these modules (compiled with `--release 17`, no errors); no module-specific blocker.
 
 ### Stream B — orders / technologies
 
