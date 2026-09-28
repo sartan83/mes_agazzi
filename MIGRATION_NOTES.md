@@ -147,7 +147,23 @@ No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by th
 
 ### Stream C — deliveries / negotiations
 
-_pending_
+Branch `java17-migration-streams/stream-c`.
+
+| Module | `mvn -pl <module> -am test` | Tests | Failures | Errors | Skipped | Main-code changes (Phase 1 base) | Test changes (Phase 1 base) |
+|---|---|--:|--:|--:|--:|---|---|
+| `mes-plugins-deliveries` | BUILD SUCCESS | 57 | 0 | 0 | 10 | none needed | `CompanyProductHooksTest` |
+| `mes-plugins-deliveries-min-state` | BUILD SUCCESS | 0 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-deliveries-to-material-flow` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-supply-negotiations` | BUILD SUCCESS | 43 | 0 | 0 | 0 | none needed | `NegotiationProductHooksTest` |
+| `mes-plugins-cat-numbers-in-deliveries` | BUILD SUCCESS | 17 | 0 | 0 | 1 | none needed | none |
+| `mes-plugins-cat-numbers-in-negot` | BUILD SUCCESS | 11 | 0 | 0 | 1 | none needed | none |
+| `mes-plugins-order-supplies` | BUILD SUCCESS | 23 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-product-catalog-numbers` | BUILD SUCCESS | 6 | 0 | 0 | 0 | none needed | `ProductCatalogNumbersServiceImplTest` |
+| `mes-plugins-material-requirement-coverage-for-order` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-product-flow-thru-division` | BUILD SUCCESS | 0 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| **Total (module own tests)** | | **157** | **0** | **0** | **12** | | |
+
+No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by these modules (compiled with `--release 17`, no errors); no module-specific blocker.
 
 ### Stream D — costs / material flow
 
