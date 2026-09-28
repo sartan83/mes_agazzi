@@ -117,7 +117,24 @@ _pending_
 
 ### Stream D — costs / material flow
 
-_pending_
+Branch `java17-migration-streams/stream-d`.
+
+| Module | `mvn -pl <module> -am test` | Tests | Failures | Errors | Skipped | Main-code changes (Phase 1 base) | Test changes (Phase 1 base) |
+|---|---|--:|--:|--:|--:|---|---|
+| `mes-plugins-cost-calculation` | BUILD SUCCESS | 2 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-cost-norms-for-operation` | BUILD SUCCESS | 3 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-cost-norms-for-product` | BUILD SUCCESS | 5 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-cost-norms-for-materials` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-cost-norms-for-operation-in-order` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-operation-cost-calculations` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-avg-labor-cost-calc-for-order` | BUILD SUCCESS | 2 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-material-flow` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-material-flow-resources` | BUILD SUCCESS | 6 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-material-requirements` | BUILD SUCCESS | 9 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-warehouse-minimal-state` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| **Total (module own tests)** | | **27** | **0** | **0** | **0** | | |
+
+No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by these modules (compiled with `--release 17`, no errors); no module-specific blocker.
 
 ### Stream E — subcontracting / misc / application
 
