@@ -109,7 +109,24 @@ _pending_
 
 ### Stream B — orders / technologies
 
-_pending_
+Branch `java17-migration-streams/stream-b`.
+
+| Module | `mvn -pl <module> -am test` | Tests | Failures | Errors | Skipped | Main-code changes (Phase 1 base) | Test changes (Phase 1 base) |
+|---|---|--:|--:|--:|--:|---|---|
+| `mes-plugins-orders` | BUILD SUCCESS | 111 | 0 | 0 | 0 | none needed | `OrderDetailsHooksTest` |
+| `mes-plugins-technologies` | BUILD SUCCESS | 58 | 0 | 0 | 3 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-technologies-generator` | BUILD SUCCESS | 20 | 0 | 0 | 5 | none needed | none |
+| `mes-plugins-time-norms-for-operations` | BUILD SUCCESS | 8 | 0 | 0 | 3 | none needed | none |
+| `mes-plugins-production-scheduling` | BUILD SUCCESS | 4 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-production-per-shift` | BUILD SUCCESS | 35 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | `PPSReportHooksTest` |
+| `mes-plugins-operation-time-calculations` | BUILD SUCCESS | 24 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-gantt-for-operation` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-gantt-for-shifts` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| `mes-plugins-time-gaps-preview` | BUILD SUCCESS | 25 | 0 | 0 | 0 | Quartz 2 `CronTriggerFactoryBean` in `root-context.xml` | none |
+| `mes-plugins-orders-for-subproducts-generation` | BUILD SUCCESS | 0 | 0 | 0 | 0 | none needed | none |
+| **Total (module own tests)** | | **285** | **0** | **0** | **11** | | |
+
+No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by these modules (compiled with `--release 17`, no errors); no module-specific blocker.
 
 ### Stream C — deliveries / negotiations
 

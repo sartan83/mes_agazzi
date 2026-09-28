@@ -23,18 +23,18 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 
 | # | Modulo | File di test | Stato |
 |--:|--------|-------------:|-------|
-| 1 | `mes-plugins/mes-plugins-orders` | 16 | TODO |
+| 1 | `mes-plugins/mes-plugins-orders` | 16 | FATTO (test verdi) |
 | 2 | `mes-plugins/mes-plugins-basic` | 13 | TODO |
 | 3 | `mes-plugins/mes-plugins-material-requirements` | 5 | TODO |
 | 4 | `mes-plugins/mes-plugins-work-plans` | 7 | TODO |
-| 5 | `mes-plugins/mes-plugins-technologies` | 13 | TODO |
-| 6 | `mes-plugins/mes-plugins-production-scheduling` | 1 | TODO |
+| 5 | `mes-plugins/mes-plugins-technologies` | 13 | FATTO (test verdi) |
+| 6 | `mes-plugins/mes-plugins-production-scheduling` | 1 | FATTO (test verdi) |
 | 7 | `mes-plugins/mes-plugins-stoppage` | 0 | TODO |
-| 8 | `mes-plugins/mes-plugins-gantt-for-operation` | 0 | TODO |
-| 9 | `mes-plugins/mes-plugins-gantt-for-shifts` | 0 | TODO |
+| 8 | `mes-plugins/mes-plugins-gantt-for-operation` | 0 | FATTO (test verdi) |
+| 9 | `mes-plugins/mes-plugins-gantt-for-shifts` | 0 | FATTO (test verdi) |
 | 10 | `mes-plugins/mes-plugins-material-flow` | 0 | TODO |
 | 11 | `mes-plugins/mes-plugins-material-flow-resources` | 2 | TODO |
-| 12 | `mes-plugins/mes-plugins-time-norms-for-operations` | 4 | TODO |
+| 12 | `mes-plugins/mes-plugins-time-norms-for-operations` | 4 | FATTO (test verdi) |
 | 13 | `mes-plugins/mes-plugins-cost-norms-for-operation` | 1 | TODO |
 | 14 | `mes-plugins/mes-plugins-cost-norms-for-product` | 1 | TODO |
 | 15 | `mes-plugins/mes-plugins-cost-calculation` | 1 | TODO |
@@ -42,10 +42,10 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 | 17 | `mes-plugins/mes-plugins-basic-production-counting` | 2 | TODO |
 | 18 | `mes-plugins/mes-plugins-cost-norms-for-materials` | 0 | TODO |
 | 19 | `mes-plugins/mes-plugins-production-lines` | 1 | TODO |
-| 20 | `mes-plugins/mes-plugins-operation-time-calculations` | 1 | TODO |
+| 20 | `mes-plugins/mes-plugins-operation-time-calculations` | 1 | FATTO (test verdi) |
 | 21 | `mes-plugins/mes-plugins-operation-cost-calculations` | 0 | TODO |
 | 22 | `mes-plugins/mes-plugins-deviation-causes-reporting` | 2 | TODO |
-| 23 | `mes-plugins/mes-plugins-production-per-shift` | 13 | TODO |
+| 23 | `mes-plugins/mes-plugins-production-per-shift` | 13 | FATTO (test verdi) |
 | 24 | `mes-plugins/mes-plugins-line-changeover-norms` | 5 | TODO |
 | 25 | `mes-plugins/mes-plugins-line-changeover-norms-for-orders` | 6 | TODO |
 | 26 | `mes-plugins/mes-plugins-states` | 13 | TODO |
@@ -73,9 +73,9 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 | 48 | `mes-plugins/mes-plugins-tech-subcontr-for-negot` | 8 | TODO |
 | 49 | `mes-plugins/mes-plugins-tech-subcontr-for-order-supplies` | 4 | TODO |
 | 50 | `mes-plugins/mes-plugins-order-supplies` | 5 | TODO |
-| 51 | `mes-plugins/mes-plugins-orders-for-subproducts-generation` | 0 | TODO |
-| 52 | `mes-plugins/mes-plugins-time-gaps-preview` | 3 | TODO |
-| 53 | `mes-plugins/mes-plugins-technologies-generator` | 5 | TODO |
+| 51 | `mes-plugins/mes-plugins-orders-for-subproducts-generation` | 0 | FATTO (test verdi) |
+| 52 | `mes-plugins/mes-plugins-time-gaps-preview` | 3 | FATTO (test verdi) |
+| 53 | `mes-plugins/mes-plugins-technologies-generator` | 5 | FATTO (test verdi) |
 | 54 | `mes-plugins/mes-plugins-email-notifications` | 0 | TODO |
 | 55 | `mes-plugins/mes-plugins-deliveries-min-state` | 0 | TODO |
 | 56 | `mes-application` | 0 | TODO |
