@@ -101,7 +101,7 @@ They run on Java 17 once the transitive stack is overridden from the MES root PO
 ## Phase 2 — module streams
 
 Every module was verified with `mvn -pl <module> -am test` on JDK 17 in its stream branch
-(`java17-migration/stream-<x>`). "Test changes" lists the Mockito 3 matcher updates of decision 8.
+(`java17-migration-streams/stream-<x>`, merged via https://github.com/sartan83/mes_agazzi/pull/2 – https://github.com/sartan83/mes_agazzi/pull/6). Git cannot hold both a branch `java17-migration` and branches under `java17-migration/…`, hence the `java17-migration-streams/` prefix. "Test changes" lists the Mockito 3 matcher updates of decision 8.
 
 ### Stream A — core / base
 
@@ -211,8 +211,69 @@ No JAXB / JAX-WS, `sun.misc.Unsafe` or other removed JDK API is referenced by th
 
 ## Phase 3 — integration
 
-_pending_
+All five stream branches were merged into `java17-migration` (only `MIGRATION_NOTES.md` / `MIGRATION_PROGRESS.md` conflicted:
+adjacent table rows, resolved by keeping every stream's rows).
+
+### Full clean build
+
+`mvn -B -Ptomcat clean install` on OpenJDK 17.0.19 / Maven 3.9.9: **BUILD SUCCESS**, 58 reactor projects, 823 tests,
+0 failures, 0 errors, 30 skipped. Produces `mes-application/target/mes-application-1.5-SNAPSHOT.war` and the Tomcat
+package `mes-application/target/mes-application.zip`.
+
+### Dependency convergence (`mvn dependency:tree`, WAR `WEB-INF/lib` compared with the JDK 8 build of `master`)
+
+| Change | Reason |
+|---|---|
+| `cglib:cglib` 2.2 → 3.3.0 (`cglib.version`), `org.ow2.asm:asm` managed to 9.7.1 (`asm.version`) | cglib 2.2 depends on `asm:asm:3.1`, which cannot parse class files newer than Java 6; cglib 3.3.0 uses `org.ow2.asm`, pinned to 9.7.1 (reads Java 17 class files). Same `net.sf.cglib` API; `aop.xml` exclusions unchanged. `asm-3.1.jar` is no longer packaged. |
+| Spring 3.2.11 → 4.3.30, Spring Security 3.2.5 → 3.2.10, AspectJ 1.8.13 → 1.9.24, Quartz 1.8.5 → 2.3.2, `commons-logging` 1.1.3 → 1.2 | Phase 1 overrides; no Spring 3.2 / AspectJ 1.8 / Quartz 1.x jar remains in the WAR. |
+| `xml-apis-1.4.01.jar` removed | Excluded in Phase 1 (split package with `java.xml`). |
+| New: `javax.annotation-api-1.3.2`, `c3p0-0.9.5.4` + `mchange-commons-java-0.2.15`, `HikariCP-java7-2.4.13` | `javax.annotation` left the JDK in 11; c3p0 / HikariCP-java7 are Quartz 2.3.2 transitive dependencies (not configured, Quartz keeps its RAM job store). |
+
+Assessment of the other libraries named in the task (all kept, versions unchanged — they run on Java 17 with the
+`--add-opens` set above and have no upgrade that keeps the same API):
+
+- `net.sf.ehcache:ehcache-core` 2.3.1 — no JDK-internal API use; cache managers start on JDK 17 (see boot log).
+- `org.apache.tiles:*` 2.2.2, `javax.servlet:jstl` 1.2 — plain Servlet/JSP 2.x API, rendered correctly on Tomcat 8.5 / JDK 17 (login, main and dashboard pages).
+- `commons-fileupload` 1.2.2 — pure Servlet API, Java 17 compatible; a version bump would be a security change, out of scope.
+- `yuicompressor` 2.3.6 — packaged library only, no Java 17 issue.
+- Pre-existing duplicates kept as on `master` (same jars in the JDK 8 WAR): `bcprov/bcmail-jdk14` 138 + 1.38 (itext 2.1.7), `saxon` 8.7 + 9.1.0.8, `stax-api-1.0.1` (jettison 1.1; its `javax.xml.stream` classes are shadowed by the JDK `java.xml` module at runtime).
+
+### Boot on PostgreSQL
+
+Fresh boot of the packaged `mes-application.zip` (unzipped, `bin/catalina.sh start`, `JAVA_HOME` = JDK 17,
+`LANG=en_US.UTF-8`) against a freshly created PostgreSQL 14 database `mes`:
+
+- `Server startup in 26117 ms`; both Hibernate `SessionFactory`s built (schema created by `hbm2ddl=update`, 488 tables), Quartz `schedulerFactoryBeanBasic` started, `Qcadoo MES` `DispatcherServlet` initialised; no `ERROR`/`SEVERE` entry in `catalina.*.log`, `localhost.*.log` or `root.log`.
+- CSRF-protected login (`POST /j_spring_security_check`) → `loginSuccessfull`; `GET /main.html` → 200 (`TEST QCD MES`); `GET /dashboard.html` → 200 (~105 KB dashboard).
+- A freshly created database has `afterfirstpswdchange` unset for the default users, so the first login is redirected to the password-change flow (identical on JDK 8 — functional behaviour, not changed). For the automated checks and the demo, `admin` / `superadmin` are marked as having changed the password (`update qcadoosecurity_user set afterfirstpswdchange=true, pswdlastchanged=now()`), i.e. test-data setup only.
+- Load-time weaving reports `error aspect 'com.qcadoo.mes.states.aop.StatesXpiAspect' woven into 'com.qcadoo.mes.states.StateChangeContext' must be defined to the weaver`. The same message is printed by the unmodified `master` on JDK 8 / AspectJ 1.8.13: the class is already compile-time woven by `aspectj-maven-plugin`, and the LTW agent only notes that it does not know the aspect. Not a regression; left as is.
 
 ## Phase 4 — full test run, report and demo
+
+### Reporting setup (root `pom.xml`)
+
+| Plugin | Version | Configuration |
+|---|---|---|
+| `org.jacoco:jacoco-maven-plugin` | 0.8.12 (first line supporting Java 17+ class files well) | `prepare-agent` + `report` bound to `verify`; Surefire `argLine` is now `@{argLine} ${jdk17.opens}` with an empty `argLine` default, so the agent and the module opens are both passed. |
+| `org.apache.maven.plugins:maven-surefire-report-plugin` | 3.5.3 (same line as Surefire) | `<reporting>` section, `aggregate=true`. |
+
+### Full run
+
+```bash
+mvn -B -Ptomcat clean install
+mvn org.apache.maven.plugins:maven-surefire-report-plugin:3.5.3:report-only -Daggregate=true
+python3 docs/generate_test_report.py
+```
+
+Result on OpenJDK 17.0.19: **823 tests, 793 passed, 0 failures, 0 errors, 30 skipped** in 193 test classes
+(JDK 8 baseline of `master`: 822 / 0 / 0 / 29; the difference is the `@Ignore`d, empty
+`TSFOrderSuppliesOrderStateValidationServiceTest`). JaCoCo line coverage 5.1 %, branch coverage 4.7 % over the modules with tests.
+
+- Summary (Markdown): [`TEST_REPORT.md`](TEST_REPORT.md) — totals and per-module tests / passed / failed / errors / skipped / coverage, with the JDK 8 baseline per module.
+- Summary (HTML): [`TEST_REPORT.html`](TEST_REPORT.html).
+- Surefire aggregate HTML report: [`docs/test-report/surefire-report.html`](docs/test-report/surefire-report.html) (copied from `target/reports/surefire.html`).
+- Generator: [`docs/generate_test_report.py`](docs/generate_test_report.py); JDK 8 baseline data: [`docs/test-report/baseline-jdk8.json`](docs/test-report/baseline-jdk8.json).
+
+### Demo video
 
 _pending_

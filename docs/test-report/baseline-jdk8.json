@@ -1,0 +1,224 @@
+{
+ "mes-plugins-technologies-generator": {
+  "tests": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 5
+ },
+ "mes-plugins-advanced-genealogy": {
+  "tests": 46,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 2
+ },
+ "mes-plugins-assignment-to-shift": {
+  "tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-orders": {
+  "tests": 111,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-time-norms-for-operations": {
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 3
+ },
+ "mes-plugins-technologies": {
+  "tests": 58,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 3
+ },
+ "mes-plugins-column-extension": {
+  "tests": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-material-flow-resources": {
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-cost-calculation": {
+  "tests": 2,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-avg-labor-cost-calc-for-order": {
+  "tests": 2,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-cat-numbers-in-negot": {
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 1
+ },
+ "mes-plugins-work-plans": {
+  "tests": 26,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 2
+ },
+ "mes-plugins-basic": {
+  "tests": 33,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-line-changeover-norms": {
+  "tests": 14,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-production-per-shift": {
+  "tests": 35,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-deliveries": {
+  "tests": 57,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 10
+ },
+ "mes-plugins-material-requirements": {
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-tech-subcontr-for-order-supplies": {
+  "tests": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-order-supplies": {
+  "tests": 23,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-production-scheduling": {
+  "tests": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-basic-production-counting": {
+  "tests": 1,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-supply-negotiations": {
+  "tests": 43,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-cat-numbers-in-deliveries": {
+  "tests": 17,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 1
+ },
+ "mes-plugins-master-orders": {
+  "tests": 14,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-wage-groups": {
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-tech-subcontr-for-negot": {
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-production-counting": {
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-product-catalog-numbers": {
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-states": {
+  "tests": 70,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-cost-norms-for-operation": {
+  "tests": 3,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-tech-subcontracting": {
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 1
+ },
+ "mes-plugins-tech-subcontr-for-deliveries": {
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-deviation-causes-reporting": {
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-time-gaps-preview": {
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-line-changeover-norms-for-orders": {
+  "tests": 46,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 1
+ },
+ "mes-plugins-cost-norms-for-product": {
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "mes-plugins-operation-time-calculations": {
+  "tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ }
+}

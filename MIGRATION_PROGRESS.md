@@ -10,9 +10,9 @@ Le note tecniche della migrazione sono in [`MIGRATION_NOTES.md`](MIGRATION_NOTES
 | 0 | Verifica compatibilità Java 17 del framework Qcadoo esterno (`com.qcadoo:*`, versione `${project.version}` = `1.5-SNAPSHOT`) e del parent `com.qcadoo.maven:qcadoo-super-pom:0.0.1` | 10% | 100% | 10.00% |
 | 1 | Fondamenta build: sostituzione di `org.codehaus.mojo:aspectj-maven-plugin` con toolchain compatibile Java 17; `source`/`target`/`complianceLevel` a 17 nel `pom.xml` root | 5% | 100% | 5.00% |
 | 2 | Migrazione dei moduli (vedi [dettaglio Fase 2](#dettaglio-fase-2--migrazione-dei-moduli)) — 56/56 moduli `FATTO` | 65% | 100.00% | 65.00% |
-| 3 | Integrazione + avvio runtime su JDK 17 + PostgreSQL | 12% | 0% | 0.00% |
-| 4 | Test completi, report Surefire/JaCoCo, video (vedi [stato parziale Fase 4](#stato-parziale-fase-4)) | 8% | 0% | 0.00% |
-| **Totale** | | **100%** | | **80.00%** |
+| 3 | Integrazione + avvio runtime su JDK 17 + PostgreSQL | 12% | 100% | 12.00% |
+| 4 | Test completi, report Surefire/JaCoCo, video (vedi [stato parziale Fase 4](#stato-parziale-fase-4)) | 8% | 80% | 6.40% |
+| **Totale** | | **100%** | | **98.40%** |
 
 ## Dettaglio Fase 2 — migrazione dei moduli
 
@@ -88,8 +88,8 @@ La Fase 4 può avanzare per milestone (ciascuna vale 0% o il suo intero peso int
 
 | Milestone Fase 4 | Peso interno | Stato |
 |------------------|-------------:|-------|
-| Test completi eseguiti e verdi (`mvn test` su tutto il reactor, JDK 17) | 50% | TODO |
-| Report Surefire + JaCoCo generati e pubblicati | 30% | TODO |
+| Test completi eseguiti e verdi (`mvn test` su tutto il reactor, JDK 17) | 50% | FATTO |
+| Report Surefire + JaCoCo generati e pubblicati | 30% | FATTO |
 | Video dimostrativo prodotto | 20% | TODO |
 
 Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
@@ -113,5 +113,5 @@ Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
 ## Ultimo aggiornamento
 
 - **Data:** 2026-09-28
-- **Commit di riferimento:** `aa0c78b` (merge degli stream A–E in `java17-migration`, PR #2–#6)
-- **Descrizione:** Fase 2 conclusa: 56/56 moduli verificati su OpenJDK 17.0.19 con `mvn -pl <module> -am test` (BUILD SUCCESS, 0 failure / 0 error); `mvn -pl mes-application -am test` esegue l'intero reactor: 823 test, 0 failure, 0 error, 30 skipped. Fasi 0 e 1 concluse in precedenza (`c0ca06e`).
+- **Commit di riferimento:** vedi commit che introduce `TEST_REPORT.md` (branch `java17-migration-streams/integration`)
+- **Descrizione:** Fase 3 conclusa: `mvn -Ptomcat clean install` BUILD SUCCESS su JDK 17 (823 test, 0 failure, 0 error, 30 skipped), cglib 3.3.0 + ASM 9.7.1, avvio del pacchetto Tomcat su PostgreSQL 14 (login, `main.html` e `dashboard.html` → 200). Fase 4: test completi verdi, report Surefire aggregato + JaCoCo in `TEST_REPORT.md` / `TEST_REPORT.html`; manca il video.
