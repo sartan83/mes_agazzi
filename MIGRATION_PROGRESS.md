@@ -103,7 +103,7 @@ Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
    - la sezione [Ultimo aggiornamento](#ultimo-aggiornamento).
 2. **Formula Fase 2.** Completamento Fase 2 (%) = `moduli FATTO / 56 × 100`. Ogni modulo vale quindi 100/56 ≈ 1.79% della fase e 65/56 ≈ 1.16% del totale. Conteggio oggettivo dei moduli completati:
    ```bash
-   grep -c '| FATTO (test verdi) |' MIGRATION_PROGRESS.md
+   grep -cE '^\| [0-9]+ \| `[^`]+` \| [0-9]+ \| FATTO \(test verdi\) \|$' MIGRATION_PROGRESS.md
    ```
 3. **Fasi 0, 1, 3 (non parallelizzabili).** Il completamento passa da 0% a 100% solo quando la fase è interamente conclusa; nessun valore intermedio.
 4. **Fase 4.** Si applica la stessa regola 0% → 100%, oppure lo stato parziale per milestone descritto sopra se serve granularità.
