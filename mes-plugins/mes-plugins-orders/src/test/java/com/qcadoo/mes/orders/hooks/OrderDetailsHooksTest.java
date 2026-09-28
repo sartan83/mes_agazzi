@@ -58,7 +58,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.util.ReflectionTestUtils.setField;
@@ -209,7 +208,7 @@ public class OrderDetailsHooksTest {
         orderDetailsHooks.fillDefaultTechnology(view);
 
         // then
-        verify(defaultTechnologyField, never()).setFieldValue(anyString());
+        verify(defaultTechnologyField, never()).setFieldValue(Mockito.nullable(String.class));
     }
 
     @Test
@@ -228,7 +227,7 @@ public class OrderDetailsHooksTest {
         orderDetailsHooks.fillDefaultTechnology(view);
 
         // then
-        verify(defaultTechnologyField, never()).setFieldValue(Mockito.anyString());
+        verify(defaultTechnologyField, never()).setFieldValue(Mockito.nullable(String.class));
     }
 
     @Test
@@ -248,7 +247,7 @@ public class OrderDetailsHooksTest {
         orderDetailsHooks.fillDefaultTechnology(view);
 
         // then
-        verify(defaultTechnologyField).setFieldValue(anyString());
+        verify(defaultTechnologyField).setFieldValue(Mockito.nullable(String.class));
     }
 
     @Test
@@ -284,7 +283,7 @@ public class OrderDetailsHooksTest {
                 .willReturn(technologyDD);
 
         given(technologyDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.list()).willReturn(searchResult);
         given(searchResult.getTotalNumberOfEntities()).willReturn(0);
@@ -313,7 +312,7 @@ public class OrderDetailsHooksTest {
                 .willReturn(technologyDD);
 
         given(technologyDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.list()).willReturn(searchResult);
         given(searchResult.getTotalNumberOfEntities()).willReturn(1);

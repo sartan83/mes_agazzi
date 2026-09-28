@@ -72,7 +72,17 @@ They run on Java 17 once the transitive stack is overridden from the MES root PO
 8. **Mockito 1 → 3 test semantics**: Mockito ≥ 2 `any(Foo.class)` / `anyString()` no longer match `null`. Tests whose
    production code passes `null` (e.g. `entity.addError(null, "...")`, `SearchRestrictions` mocked statically → `null`
    criterion) are updated to `Mockito.nullable(Foo.class)`, which is the exact Mockito 1 behaviour. No assertion is
-   weakened; recorded per module below.
+   weakened. These 11 test-file updates are part of the shared base (not of the individual streams) because
+   `mvn -pl <module> -am test` also runs the tests of every upstream module (e.g. `mes-plugins-basic`,
+   `mes-plugins-orders`, `mes-plugins-states`), so a stream could not be green while another stream still carried
+   the fix. Files: `UnitConversionItemValidatorsBTest` (basic), `StateChangeViewClientValidationUtilTest` (states),
+   `AssignmentToShiftHooksTest`, `AssignmentToShiftReportHooksTest` (assignment-to-shift), `OrderDetailsHooksTest`
+   (orders), `PPSReportHooksTest` (production-per-shift), `CompanyProductHooksTest` (deliveries),
+   `NegotiationProductHooksTest` (supply-negotiations), `ProductCatalogNumbersServiceImplTest`
+   (product-catalog-numbers), `BatchModelValidatorsTest` (advanced-genealogy).
+   `TSFOrderSuppliesOrderStateValidationServiceTest` (tech-subcontr-for-order-supplies) has every `@Test` method
+   commented out on `master`; PowerMock 1.5 silently ran 0 tests, PowerMock 2 fails such a class with
+   `No runnable methods`, so it is marked `@Ignore` (reported as 1 skipped instead of absent).
 9. **Runtime prerequisite (not Java 17 specific)**: `ParameterModelHooks` calls `Currency.getInstance(Locale.getDefault())`,
    so the JVM default locale must contain a country (`LANG=en_US.UTF-8`). Same behaviour on Java 8.
 

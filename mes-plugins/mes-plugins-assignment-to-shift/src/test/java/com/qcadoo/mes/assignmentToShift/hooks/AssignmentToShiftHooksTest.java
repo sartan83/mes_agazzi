@@ -139,7 +139,7 @@ public class AssignmentToShiftHooksTest {
 
         // then
         Assert.assertTrue(result);
-        verify(assignmentToShift, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(assignmentToShift, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test
@@ -152,7 +152,7 @@ public class AssignmentToShiftHooksTest {
 
         // then
         Assert.assertFalse(result);
-        verify(assignmentToShift, times(4)).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(assignmentToShift, times(4)).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test
@@ -165,7 +165,7 @@ public class AssignmentToShiftHooksTest {
 
         // then
         Assert.assertFalse(result);
-        verify(assignmentToShift, times(4)).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(assignmentToShift, times(4)).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test

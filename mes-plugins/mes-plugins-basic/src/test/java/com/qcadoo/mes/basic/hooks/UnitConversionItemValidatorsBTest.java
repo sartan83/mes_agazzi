@@ -96,7 +96,7 @@ public class UnitConversionItemValidatorsBTest {
 
         // then
         assertTrue(result);
-        verify(unitConversionItem, Mockito.never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(unitConversionItem, Mockito.never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
 
     }
 
@@ -111,7 +111,7 @@ public class UnitConversionItemValidatorsBTest {
 
         // then
         assertFalse(result);
-        verify(unitConversionItem).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(unitConversionItem).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
 
     }
 }

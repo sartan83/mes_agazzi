@@ -76,7 +76,7 @@ public class CompanyProductHooksTest {
         // then
         assertTrue(result);
 
-        verify(companyProduct, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(companyProduct, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
     @Ignore
     @Test
@@ -90,7 +90,7 @@ public class CompanyProductHooksTest {
         // then
         assertFalse(result);
 
-        verify(companyProduct).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(companyProduct).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
 }

@@ -71,7 +71,7 @@ public class AssignmentToShiftReportHooksTest {
         // then
         Assert.assertFalse(result);
 
-        verify(assignmentToShiftReport, times(2)).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(assignmentToShiftReport, times(2)).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test
@@ -85,7 +85,7 @@ public class AssignmentToShiftReportHooksTest {
         // then
         Assert.assertTrue(result);
 
-        verify(assignmentToShiftReport, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(assignmentToShiftReport, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test

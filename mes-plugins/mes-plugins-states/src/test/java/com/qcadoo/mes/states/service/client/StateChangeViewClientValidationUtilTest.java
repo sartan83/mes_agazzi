@@ -114,8 +114,8 @@ public class StateChangeViewClientValidationUtilTest {
         validationUtil.addValidationErrorMessages(formComponent, entity, messagesHolder);
 
         // then
-        verify(entity, Mockito.never()).addError(Mockito.any(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
-        verify(formComponent).addTranslatedMessage(Mockito.any(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
+        verify(entity, Mockito.never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
+        verify(formComponent).addTranslatedMessage(Mockito.nullable(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
     }
 
     @Test
@@ -132,8 +132,8 @@ public class StateChangeViewClientValidationUtilTest {
         validationUtil.addValidationErrorMessages(formComponent, entity, messagesHolder);
 
         // then
-        verify(entity, Mockito.never()).addError(Mockito.any(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
-        verify(formComponent).addTranslatedMessage(Mockito.any(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
+        verify(entity, Mockito.never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
+        verify(formComponent).addTranslatedMessage(Mockito.nullable(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
     }
 
     @Test
@@ -150,8 +150,8 @@ public class StateChangeViewClientValidationUtilTest {
         validationUtil.addValidationErrorMessages(formComponent, entity, messagesHolder);
 
         // then
-        verify(entity, Mockito.never()).addError(Mockito.any(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
-        verify(formComponent).addTranslatedMessage(Mockito.any(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
+        verify(entity, Mockito.never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.eq(TRANSLATION_KEY));
+        verify(formComponent).addTranslatedMessage(Mockito.nullable(String.class), Mockito.eq(convertViewMessageType(VALIDATION_ERROR)), Mockito.any(Boolean.class));
     }
 
     private DataDefinition mockDataDefinition(final Iterable<FieldDefinition> fieldDefinitions) {

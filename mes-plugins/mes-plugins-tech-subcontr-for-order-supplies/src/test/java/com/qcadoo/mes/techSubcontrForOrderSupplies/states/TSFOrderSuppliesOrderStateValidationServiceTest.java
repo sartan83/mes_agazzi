@@ -23,12 +23,14 @@
  */
 package com.qcadoo.mes.techSubcontrForOrderSupplies.states;
 
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.qcadoo.model.api.search.SearchRestrictions;
 
+@Ignore("All test methods are commented out")
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(SearchRestrictions.class)
 public class TSFOrderSuppliesOrderStateValidationServiceTest {
