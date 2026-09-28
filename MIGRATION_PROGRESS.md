@@ -9,10 +9,10 @@ Le note tecniche della migrazione sono in [`MIGRATION_NOTES.md`](MIGRATION_NOTES
 |------|----------|----------------:|-----------------------:|-------------------------:|
 | 0 | Verifica compatibilità Java 17 del framework Qcadoo esterno (`com.qcadoo:*`, versione `${project.version}` = `1.5-SNAPSHOT`) e del parent `com.qcadoo.maven:qcadoo-super-pom:0.0.1` | 10% | 100% | 10.00% |
 | 1 | Fondamenta build: sostituzione di `org.codehaus.mojo:aspectj-maven-plugin` con toolchain compatibile Java 17; `source`/`target`/`complianceLevel` a 17 nel `pom.xml` root | 5% | 100% | 5.00% |
-| 2 | Migrazione dei moduli (vedi [dettaglio Fase 2](#dettaglio-fase-2--migrazione-dei-moduli)) — 0/56 moduli `FATTO` | 65% | 0.00% | 0.00% |
+| 2 | Migrazione dei moduli (vedi [dettaglio Fase 2](#dettaglio-fase-2--migrazione-dei-moduli)) — 56/56 moduli `FATTO` | 65% | 100.00% | 65.00% |
 | 3 | Integrazione + avvio runtime su JDK 17 + PostgreSQL | 12% | 0% | 0.00% |
 | 4 | Test completi, report Surefire/JaCoCo, video (vedi [stato parziale Fase 4](#stato-parziale-fase-4)) | 8% | 0% | 0.00% |
-| **Totale** | | **100%** | | **15.00%** |
+| **Totale** | | **100%** | | **80.00%** |
 
 ## Dettaglio Fase 2 — migrazione dei moduli
 
@@ -80,7 +80,7 @@ Stati ammessi: `TODO` / `IN CORSO` / `FATTO (test verdi)`.
 | 55 | `mes-plugins/mes-plugins-deliveries-min-state` | 0 | FATTO (test verdi) |
 | 56 | `mes-application` | 0 | FATTO (test verdi) |
 
-**Riepilogo Fase 2:** FATTO 0 / 56 — IN CORSO 0 — TODO 56 → completamento Fase 2 = **0.00%**
+**Riepilogo Fase 2:** FATTO 56 / 56 — IN CORSO 0 — TODO 0 → completamento Fase 2 = **100.00%**
 
 ## Stato parziale Fase 4
 
@@ -113,5 +113,5 @@ Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
 ## Ultimo aggiornamento
 
 - **Data:** 2026-09-28
-- **Commit di riferimento:** `c0ca06e` (fondamenta build Java 17, introduce `PHASE0_FRAMEWORK_COMPAT.md`)
-- **Descrizione:** Fase 0 conclusa (verdetto GO condizionale, vedi `PHASE0_FRAMEWORK_COMPAT.md`); Fase 1 conclusa: `dev.aspectj:aspectj-maven-plugin` 1.14.1, AspectJ 1.9.24, `maven.compiler.release=17`, stack Spring 4.3.30 / Security 3.2.10 / Quartz 2.3.2; `mvn -Ptomcat -DskipTests clean install` → BUILD SUCCESS su OpenJDK 17.0.19.
+- **Commit di riferimento:** `aa0c78b` (merge degli stream A–E in `java17-migration`, PR #2–#6)
+- **Descrizione:** Fase 2 conclusa: 56/56 moduli verificati su OpenJDK 17.0.19 con `mvn -pl <module> -am test` (BUILD SUCCESS, 0 failure / 0 error); `mvn -pl mes-application -am test` esegue l'intero reactor: 823 test, 0 failure, 0 error, 30 skipped. Fasi 0 e 1 concluse in precedenza (`c0ca06e`).
