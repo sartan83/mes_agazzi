@@ -1,10 +1,10 @@
 # Test report — Java 17 migration
 
-- Generated: 2026-09-28 10:15 UTC
-- Commit: `1a341ae6d3` (branch `java17-migration`)
+- Generated: 2026-09-28 12:12 UTC
+- Commit: `a627be1151` (branch `java17-migration`)
 - JDK: `openjdk version "17.0.19" 2026-04-21`
 - Maven: `Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)`
-- Command: `mvn -B -Ptomcat clean install (surefire + JaCoCo 0.8.12) && mvn org.apache.maven.plugins:maven-surefire-report-plugin:3.5.3:report-only -Daggregate=true`
+- Command: `mvn -B -Ptomcat clean install && mvn -B org.apache.maven.plugins:maven-surefire-report-plugin:3.5.3:report-only -Daggregate=true`
 - HTML: [`TEST_REPORT.html`](TEST_REPORT.html) (this summary with per-module drill-down), Surefire aggregate: [`docs/test-report/surefire-report.html`](docs/test-report/surefire-report.html)
 
 ## Totals
