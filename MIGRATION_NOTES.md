@@ -280,4 +280,10 @@ Result on OpenJDK 17.0.19: **823 tests, 793 passed, 0 failures, 0 errors, 30 ski
 
 ### Demo video
 
-_pending_
+[`docs/java17-migration-demo.mp4`](docs/java17-migration-demo.mp4) — one continuous, annotated recording (edited to ~70 s) on
+commit `7ca8e45`: (1) `java -version` / `mvn -v` → OpenJDK 17.0.19, Maven 3.9.9; (2) `mvn -B -Ptomcat clean install` →
+BUILD SUCCESS for all 58 reactor projects, 823 tests / 0 failures / 0 errors / 30 skipped; (3) report regeneration and
+`TEST_REPORT.html` + Surefire aggregate report opened in Chrome; (4) unzip of `mes-application.zip`, `setenv.sh` with the
+AspectJ 1.9.24 agent and `--add-opens`, Tomcat start on JDK 17 (`Server startup in 23222 ms`), `admin` login, dashboard
+(13 buttons, chart area, orders kanban), navigation via a dashboard button and the menu to Technologies, Products and
+Production orders. Uses the PostgreSQL fixture described in Phase 3. Stills: [`docs/screenshots/`](docs/screenshots/).

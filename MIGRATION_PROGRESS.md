@@ -11,8 +11,8 @@ Le note tecniche della migrazione sono in [`MIGRATION_NOTES.md`](MIGRATION_NOTES
 | 1 | Fondamenta build: sostituzione di `org.codehaus.mojo:aspectj-maven-plugin` con toolchain compatibile Java 17; `source`/`target`/`complianceLevel` a 17 nel `pom.xml` root | 5% | 100% | 5.00% |
 | 2 | Migrazione dei moduli (vedi [dettaglio Fase 2](#dettaglio-fase-2--migrazione-dei-moduli)) — 56/56 moduli `FATTO` | 65% | 100.00% | 65.00% |
 | 3 | Integrazione + avvio runtime su JDK 17 + PostgreSQL | 12% | 100% | 12.00% |
-| 4 | Test completi, report Surefire/JaCoCo, video (vedi [stato parziale Fase 4](#stato-parziale-fase-4)) | 8% | 80% | 6.40% |
-| **Totale** | | **100%** | | **98.40%** |
+| 4 | Test completi, report Surefire/JaCoCo, video (vedi [stato parziale Fase 4](#stato-parziale-fase-4)) | 8% | 100% | 8.00% |
+| **Totale** | | **100%** | | **100.00%** |
 
 ## Dettaglio Fase 2 — migrazione dei moduli
 
@@ -90,7 +90,7 @@ La Fase 4 può avanzare per milestone (ciascuna vale 0% o il suo intero peso int
 |------------------|-------------:|-------|
 | Test completi eseguiti e verdi (`mvn test` su tutto il reactor, JDK 17) | 50% | FATTO |
 | Report Surefire + JaCoCo generati e pubblicati | 30% | FATTO |
-| Video dimostrativo prodotto | 20% | TODO |
+| Video dimostrativo prodotto | 20% | FATTO |
 
 Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
 
@@ -113,5 +113,5 @@ Completamento Fase 4 = somma dei pesi interni delle milestone `FATTO`.
 ## Ultimo aggiornamento
 
 - **Data:** 2026-09-28
-- **Commit di riferimento:** vedi commit che introduce `TEST_REPORT.md` (branch `java17-migration-streams/integration`)
-- **Descrizione:** Fase 3 conclusa: `mvn -Ptomcat clean install` BUILD SUCCESS su JDK 17 (823 test, 0 failure, 0 error, 30 skipped), cglib 3.3.0 + ASM 9.7.1, avvio del pacchetto Tomcat su PostgreSQL 14 (login, `main.html` e `dashboard.html` → 200). Fase 4: test completi verdi, report Surefire aggregato + JaCoCo in `TEST_REPORT.md` / `TEST_REPORT.html`; manca il video.
+- **Commit di riferimento:** `7ca8e45` (build, test, report e video verificati su questo commit)
+- **Descrizione:** Fase 3 conclusa: `mvn -Ptomcat clean install` BUILD SUCCESS su JDK 17 (823 test, 0 failure, 0 error, 30 skipped), cglib 3.3.0 + ASM 9.7.1, avvio del pacchetto Tomcat su PostgreSQL 14 (login, `main.html` e `dashboard.html` → 200). Fase 4 conclusa: test completi verdi (823/0/0/30), report Surefire aggregato + JaCoCo in `TEST_REPORT.md` / `TEST_REPORT.html`, video `docs/java17-migration-demo.mp4`.
