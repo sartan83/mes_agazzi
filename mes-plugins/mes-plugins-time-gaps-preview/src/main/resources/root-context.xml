@@ -38,7 +38,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-    <bean id="cleanUpTimeGapsContextsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="cleanUpTimeGapsContextsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="cleanUpTimeGapsContexts" />
         <property name="cronExpression" value="0 0 4 * * ?" /><!-- every day at 4:00:00 am -->
     </bean>

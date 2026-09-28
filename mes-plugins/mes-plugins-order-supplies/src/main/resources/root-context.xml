@@ -38,7 +38,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
-	<bean id="deleteUnsavedMaterialRequirementCoveragesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="deleteUnsavedMaterialRequirementCoveragesTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="deleteUnsavedMaterialRequirementCoverages" />
 		<property name="cronExpression" value="0 0 1 * * ?" />
 	</bean>

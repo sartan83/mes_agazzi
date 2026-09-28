@@ -46,6 +46,7 @@
 			classpath*:qcadoo-mail-context.xml
 			classpath*:root-context.xml
 			classpath*:web-context.xml
+			/WEB-INF/java17-compat-context.xml
 		</param-value>
 	</context-param>
 

@@ -13,6 +13,17 @@ Choose one of the following options:
 2. Build qcadoo MES from sources
    with [this instruction](https://qcadoo.atlassian.net/wiki/display/QCDMESDOC/Building+MES+from+source+code+-+tutorial)
 
+## Building on Java 17
+
+This branch builds and runs on **JDK 17** only (see `MIGRATION_NOTES.md` and `PHASE0_FRAMEWORK_COMPAT.md`).
+
+- JDK: any OpenJDK 17 build (verified with OpenJDK 17.0.19); Maven 3.9.x (verified with 3.9.9). Both are pinned in
+  `.tool-versions` for asdf/mise users.
+- Build: `mvn clean install` (add `-Ptomcat` to produce `mes-application/target/mes-application.zip`).
+- Run: unzip the package and start `bin/catalina.sh start` with `JAVA_HOME` pointing at JDK 17. The generated
+  `bin/setenv.sh` already contains the required `--add-opens` flags and the AspectJ 1.9 weaver agent. The JVM default
+  locale must include a country (e.g. `LANG=en_US.UTF-8`), because the default currency is derived from it.
+
 ## Community vs Commercial version
 
 qcadoo MES comes in two different versions:
