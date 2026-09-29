@@ -85,7 +85,7 @@ public class NegotiationProductHooksTest {
     public void shouldReturnFalseWhenCheckIfNegotiationProductAlreadyExists() throws Exception {
         // given
         given(negotiationProductDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.uniqueResult()).willReturn(negotiationProduct);
 
@@ -95,14 +95,14 @@ public class NegotiationProductHooksTest {
         // then
         assertFalse(result);
 
-        verify(negotiationProduct).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(negotiationProduct).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test
     public void shouldReturnTrueWhenCheckIfNegotiationProductAlreadyExists() throws Exception {
         // given
         given(negotiationProductDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.uniqueResult()).willReturn(null);
 
@@ -112,7 +112,7 @@ public class NegotiationProductHooksTest {
         // then
         assertTrue(result);
 
-        verify(negotiationProduct, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(negotiationProduct, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test

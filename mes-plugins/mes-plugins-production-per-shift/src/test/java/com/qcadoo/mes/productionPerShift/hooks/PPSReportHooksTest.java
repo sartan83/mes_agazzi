@@ -71,7 +71,7 @@ public class PPSReportHooksTest {
         // then
         Assert.assertFalse(result);
 
-        verify(report, times(2)).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(report, times(2)).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test
@@ -85,7 +85,7 @@ public class PPSReportHooksTest {
         // then
         Assert.assertTrue(result);
 
-        verify(report, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(report, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test

@@ -38,7 +38,7 @@
 								expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
-	<bean id="cleanReservationsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="cleanReservationsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="cleanReservations"/>
 		<property name="cronExpression" value="0 0 2 * * ?"/>
 	</bean>
@@ -49,7 +49,7 @@
 		<property name="targetMethod" value="cleanReservationsTrigger"/>
 	</bean>
 
-	<bean id="automaticCostNormsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="automaticCostNormsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="automaticCostNorms"/>
 		<property name="cronExpression" value="0 0 3 * * ?"/>
 	</bean>

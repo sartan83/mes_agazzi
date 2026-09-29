@@ -133,7 +133,7 @@ public class BatchModelValidatorsTest {
 
     private void assertValidationSuccess(final boolean result) {
         assertTrue(result);
-        verify(batch, never()).addError(Mockito.any(FieldDefinition.class), Mockito.anyString());
+        verify(batch, never()).addError(Mockito.nullable(FieldDefinition.class), Mockito.anyString());
     }
 
     @Test

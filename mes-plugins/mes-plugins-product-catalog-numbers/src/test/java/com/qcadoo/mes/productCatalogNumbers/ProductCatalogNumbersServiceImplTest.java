@@ -82,7 +82,7 @@ public class ProductCatalogNumbersServiceImplTest {
     public void shouldReturnNullWhenGetProductCatalogNumber() {
         // given
         given(productCatalogNumbersDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.uniqueResult()).willReturn(null);
 
@@ -97,7 +97,7 @@ public class ProductCatalogNumbersServiceImplTest {
     public void shouldReturnProductCatalogNumberWhenFetProductCatalogNumber() {
         // given
         given(productCatalogNumbersDD.find()).willReturn(searchCriteriaBuilder);
-        given(searchCriteriaBuilder.add(Mockito.any(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
+        given(searchCriteriaBuilder.add(Mockito.nullable(SearchCriterion.class))).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.setMaxResults(1)).willReturn(searchCriteriaBuilder);
         given(searchCriteriaBuilder.uniqueResult()).willReturn(productCatalogNumbers);
 

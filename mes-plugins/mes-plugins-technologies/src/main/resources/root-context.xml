@@ -37,7 +37,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<bean id="exportTechnologiesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="exportTechnologiesTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="exportTechnologies"/>
 		<property name="cronExpression" value="0 0 2 ? * 1"/>
 	</bean>

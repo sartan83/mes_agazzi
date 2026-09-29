@@ -38,7 +38,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-    <bean id="automaticDeliveriesMinStateTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="automaticDeliveriesMinStateTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="automaticDeliveriesMinState" />
         <property name="cronExpression" value="0 0 6 * * ?" />
     </bean>

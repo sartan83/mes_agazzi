@@ -35,7 +35,7 @@
 	
 	<context:component-scan base-package="com.qcadoo.mes.productionPerShift" />
 
-	<bean id="cleanUpBalanceContextsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="cleanUpBalanceContextsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="cleanUpBalanceContexts" />
 		<property name="cronExpression" value="0 0 4 * * ?" /><!-- every day at 4:00:00 am -->
 	</bean>

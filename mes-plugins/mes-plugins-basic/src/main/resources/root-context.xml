@@ -50,7 +50,7 @@
         </property>
     </bean>
 
-    <bean id="deleteOldLogsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="deleteOldLogsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="deleteOldLogs"/>
         <property name="cronExpression" value="0 0 3 * * ?"/>
     </bean>
@@ -61,7 +61,7 @@
         <property name="targetMethod" value="deleteOldLogsTrigger"/>
     </bean>
 
-    <bean id="deleteTemporaryPalletNumberHelpersTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="deleteTemporaryPalletNumberHelpersTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="deleteTemporaryPalletNumberHelpers"/>
         <property name="cronExpression" value="0 0 4 * * ?"/>
     </bean>
@@ -72,7 +72,7 @@
         <property name="targetMethod" value="deleteTemporaryPalletNumberHelpersTrigger"/>
     </bean>
 
-    <bean id="deleteOldLicenseUsagesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <bean id="deleteOldLicenseUsagesTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="deleteOldLicenseUsages"/>
         <property name="cronExpression" value="0 0 5 * * ?"/>
     </bean>

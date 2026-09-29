@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Spring 4.3 compatible replacements for bean definitions shipped inside the
+    Java 8 qcadoo framework jars (see PHASE0_FRAMEWORK_COMPAT.md). Loaded last so
+    that each definition here overrides the framework definition with the same id.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="contentNegotiationManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html; charset=utf-8"/>
+                <entry key="pdf" value="application/pdf"/>
+                <entry key="xls" value="application/vnd.ms-excel"/>
+                <entry key="xlsx" value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+                <entry key="xml" value="application/xml"/>
+                <entry key="json" value="application/json; charset=utf-8"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="contentNegotiatingViewResolver"
+          class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+          p:order="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}">
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+    </bean>
+
+</beans>
